@@ -108,11 +108,13 @@ while !end {
             }
         case "l","L":
             printList(list: taskList)
+        case "h","H","?":
+            print("Commands: (A)dd (D)elete (E)dit (I)nsert (L)ist (Q)uit")
         case "q","Q":
             end = true
     default:
-        print("Incorrect command!")
-        print("Commands: (A)dd (D)elete (E)dit (I)nsert (L)ist (Q)uit")
+        print("Incorrect command! (H) for help")
+        
     }
 }
 
