@@ -15,7 +15,6 @@ var taskList: [String] = []
 var end = false
 var option:String?
 
-
 // Return text of new task
 func newTask() -> String {
     print("Enter the Task:")
@@ -52,7 +51,7 @@ func selectItem(list:[String], msg: String) -> Int?{
 
 }
 
-//Print all emenetnt in list
+//Print all elements (index No and Item)
 func printList(list:[String]){
     print("No. \t Task:")
     for (index, task) in list.enumerated(){
@@ -76,7 +75,7 @@ while !end {
     option = readLine()
     switch option! {
         case "a","A":
-            taskList.append(newTask())
+            taskList.append(newTask()) //Appand to the end of list
         case "d","D":
             if taskList.count > 1 {
                 if let deleteNo = selectItem(list: taskList, msg: "delete") {
@@ -99,12 +98,14 @@ while !end {
                 print("List is empty")
             }
         case "i","I":
-            if taskList.count > 0 {
+            if taskList.count > 1 {
                 if let insertNo = selectItem(list: taskList, msg: "insert") {
                     taskList.insert(newTask(), at: insertNo)
                 }
+            } else if taskList.count == 1 {
+                taskList.insert(newTask(), at:0)
             } else {
-            print("List is empty")
+                print("List is empty")
             }
         case "l","L":
             printList(list: taskList)
